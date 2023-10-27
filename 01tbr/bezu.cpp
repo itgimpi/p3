@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-/* bezuovi koef. */
+/* bezuovi koeficijenti */
 /* extended euclid */
 
 void bezu( ll a, ll b, ll &s, ll &t){
