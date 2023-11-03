@@ -1,33 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-/* bezuovi koeficijenti */
-/* extended euclid */
+//typedef long long ll;
+//typedef unsigned long long ll;
+typedef __int128 ll;
 
-void bezu( ll a, ll b, ll &s, ll &t){
-    ll r0 = a, r1 = b;
-    ll s0 = 1, s1 = 0;
-    ll t0 = 0, t1 = 1;
+ll stepen( ll a, ll n, ll m ) { // a na n mod m ~ log p, bolje od sqrt p
+    if ( n == 0 ) return 1;
 
-    while ( r1 > 0 ) {
-        ll q = r0 / r1; // q je isti za sva tri dela
-        ll tmp;
+    if ( n % 2 == 0 ) // stepen je par?
+        return stepen( ( a % m ) * ( a % m ), n / 2, m ) % m;
+    // nepar
+    return  ( ( a % m ) * stepen ( a, n-1, m) ) % m; }
 
-        tmp = r0;
-        r0 = r1;
-        r1 = tmp - q * r1;
-
-        tmp = s0;
-        s0 = s1;
-        s1 = tmp - q * s1;
-
-        tmp = t0;
-        t0 = t1;
-        t1 = tmp - q * t1;     } 
-    s = s0; t = t0;  }
+bool ferma( ll p , ll br) {
+    if ( p == 1 ) return false;
+    if ( p == 2 || p == 3 ) return true;
+    default_random_engine gen;
+    uniform_int_distribution<unsigned>dist(2, p - 2); // a od 2 do p-2
+    while ( br-- ) {
+        ll a = dist(gen);
+        if ( stepen(a, p-1, p) != 1 )
+            return false; }
+    return true; }
 
 int main() {
-    ll a, b, s, t; cin >> a >> b;
-    bezu(a, b, s, t);
-    cout << s << ' ' << t;
+    long long p;
+    
+    while ( cin >> p ) 
+        if ( ferma(p, 100) )
+            cout << p << '\n';
+
     return 0; }
+
