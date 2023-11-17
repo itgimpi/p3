@@ -52,6 +52,17 @@ double polygone_per( polygone p ) {
     per += dist(p.pol[p.n-1], p.pol[0]);   
     return per; }
 
+double polygone_area( polygone p ) { // konvesni, redom
+    double area = 0.0;
+
+
+
+    for ( int i = 0; i < p.n-1; i++ ) // n = 6, n - 2 = 4
+        area += (p.pol[i].y + p.pol[i+1].y)/2.0*(p.pol[i+1].x - p.pol[i].x); 
+        // d01 + d12 + d23 + d34 + d45
+    area += (p.pol[n-1].y + p.pol[0].y)/2.0*(p.pol[0].x - p.pol[n-1].x);    //d50
+    return abs(area); }
+
 int main() {
     point a, b, c;
     a.x = 1.0; a.y = 1.0;

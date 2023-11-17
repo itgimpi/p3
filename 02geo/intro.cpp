@@ -45,18 +45,21 @@ double triangle_area( triangle t ) { // povrsina trougla, Heron
     double s = triangle_per(t) / 2.0;
     return sqrt( s * ( s - dist( t.a, t.b ) ) * ( s - dist( t.b, t.c ) ) * ( s - dist( t.c, t.a ) ) ); }
 
-double polygone_per ( polygone p ) {
+double polygone_per ( polygone p ) { // convex, ordered
     double per = 0.0;
     for ( int i = 0; i < p.n - 1; i++) // neka je n = 6
         per += dist( p.pol[i], p.pol[i+1] ); // 01, 12, 23, 34, 45 
     per += dist( p.pol[p.n-1], p.pol[0] );   // 50
     return per; }
 
-double polygone_area ( polygone p ) {
+double polygone_area ( polygone p ) { // convex, ordered
+    double area = 0.0;
 
-
-
-     }
+    for ( int i = 0; i < p.n; i++) // neka je n = 6
+        area += (p.pol[(i+1)%p.n].y+p.pol[i].y)/2.0*(p.pol[(i+1)%p.n].x-p.pol[i].x);
+        // 01, 12, 23, 34, 45, 50 
+    
+    return abs(area); }
 
 int main() {
     point a, b, c;
