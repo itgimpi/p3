@@ -3,7 +3,7 @@ using namespace std; // Тачка у троуглу
 // https://petlja.org/biblioteka/r/Zbirka3/tacka_u_trouglu
 
 
-// orijentacija moye da bude +(1), -(-1) i 0(0)
+// orijentacija moye da bude + (1), - (-1) i 0 (0)
 int orijentacija(double xa, double ya, double xb, double yb, double xc, double yc) {
     double z = (xb-xa)*(yc-ya)-(xc-xa)*(yb-ya); // vek.pr. za 2 vektora, koji su u xy ravni
     // tacnost sa double...
