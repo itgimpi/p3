@@ -20,9 +20,12 @@ bool pripada(   double xt, double yt,
     int orijentacija2 = orijentacija(xb, yb, xc, yc, xt, yt); // t i bc
     int orijentacija3 = orijentacija(xc, yc, xa, ya, xt, yt); // t i ab
 
-    return  orijentacija1 == orijentacija2 &&
+/*   return  orijentacija1 == orijentacija2 &&
             orijentacija2 == orijentacija3 &&
-            orijentacija3 == orijentacija1; 
+            orijentacija3 == orijentacija1;  */ 
+
+    return  orijentacija1 == orijentacija2 &&
+            orijentacija2 == orijentacija3; // tranzitivnost
 
 }
 
