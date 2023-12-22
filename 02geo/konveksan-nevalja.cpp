@@ -52,9 +52,8 @@ vector<tacka>graham(vector<tacka>&tacke) {
     omotac.push_back(tacke[1]);
 
     for (int i = 2; i < tacke.size(); i++) {
-        while ( omotac.size() >= 2 && 
-                ori( omotac[omotac.size()-2], omotac[omotac.size()-1], tacke[i] ) != 1;
-                 ) {
+        while ( omotac.size() > 1 && // ima vise od 1 tecke, stiti tacku 0
+                ori( omotac[omotac.size()-2], omotac[omotac.size()-1], tacke[i] ) != 1; ) {
             omotac.pop_back();
 
         }

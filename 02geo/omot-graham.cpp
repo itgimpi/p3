@@ -1,7 +1,8 @@
 #include <bits/stdc++.h> // konveksni omotac, by Graham
 using namespace std;
+
 struct Tacka {
-    int x, y;   };
+    int x, y; };
 
 int ori(const Tacka& t0, const Tacka& t1, const Tacka& t2) {
     long long d = (long long)(t1.x-t0.x)*(long long)(t2.y-t0.y) -
@@ -14,7 +15,7 @@ long long rast2(const Tacka& t1, const Tacka& t2) {
     int dx = t1.x - t2.x, dy = t1.y - t2.y;
     return dx*dx + dy*dy; }
 
-void prostMnogougao(vector<Tacka>& tacke) {
+void prostMnogougao(vector<Tacka>& tacke) { // O(n log n)
 // trazi desnu tacku sa maks. x koordinatom,
 // ako ima vise tacaka sa maksimalnom x koordinatom bira donju, sa najmanjom y koordinatom
     auto max = max_element(begin(tacke), end(tacke), [](const Tacka& t1, const Tacka& t2) {
@@ -38,13 +39,13 @@ void prostMnogougao(vector<Tacka>& tacke) {
         it = prev(it);
     reverse(it, end(tacke)); }
 
-vector<Tacka> graham(vector<Tacka>& tacke) {
+vector<Tacka> graham(vector<Tacka>& tacke) { // O(n)
     vector<Tacka> omotac;
     prostMnogougao(tacke); // polazi od dole desno
-    omotac.push_back(tacke[0]); // uzima prve dve tacke...
-    omotac.push_back(tacke[1]);
-    for (size_t i = 2; i < tacke.size(); i++) { // od trece tacke do zadnje
-        // ako ima bar dve u omotacu... // i orijentacija nije dobra...
+    omotac.push_back(tacke[0]); // uzima prve dve tacke, t0 je 100% omotacu
+    omotac.push_back(tacke[1]); // samo pretpostavka...
+    for (size_t i = 2; i < tacke.size(); i++) { // od trece tacke do zadnje proveri da li je za omotac
+        // ne sma da se izbaci t0...  // i orijentacija nije dobra...
         while (omotac.size() >= 2 && ori(omotac[omotac.size()-2], omotac[omotac.size()-1], tacke[i]) != 1)
             omotac.pop_back(); //izbaci tacke iz omotaca
         omotac.push_back(tacke[i]);   } // ubaci prvu sledecu sa dobrom orijentacijom 
@@ -56,6 +57,7 @@ int main() {
     vector<Tacka> tacke(n);
     for (int i = 0; i < n; i++)
     	cin >> tacke[i].x >> tacke[i].y;
+
     vector<Tacka> omotac = graham(tacke);
     cout << omotac.size() << endl;
     for (const Tacka& t : omotac)
