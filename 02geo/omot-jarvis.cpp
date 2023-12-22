@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> // konveksni omotac, by Jarvis
+#include <bits/stdc++.h>         // konveksni omotac, by Jarvis
 using namespace std;
 struct Tacka { int x, y; };
 
