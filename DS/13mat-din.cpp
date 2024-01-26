@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> // matrica je nxn
 #include <vector>
 using namespace std;
 //Ako dimenzija nije unapred poznata, najbolje je da se koristi vektor vektora.
