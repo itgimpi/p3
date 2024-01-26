@@ -1,0 +1,5 @@
+(Ax, Ay) = (int(input()), int(input()))
+(Bx, By) = (int(input()), int(input()))
+(Cx, Cy) = (int(input()), int(input()))
+(Tx, Ty) = ((Ax + Bx + Cx) / 3.0, (Ay + By + Cy) / 3.0)
+print(Tx, Ty)
