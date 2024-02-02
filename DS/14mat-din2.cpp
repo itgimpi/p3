@@ -9,10 +9,10 @@ int main() {
         ocene[s].resize(br);
         for (int oc = 0; oc < br; oc++)
             cin >> ocene[s][oc]; }
-    for (int u = 0; u < n; u++) { // računa sve proseke ocena
+    for (int s = 0; s < n; s++) { // računa sve proseke ocena
         int zbir = 0;
-        int broc = ocene[u].size(); // br. ocena za svakog
+        int broc = ocene[s].size(); // br. ocena za svakog
         for (int o = 0; o < broc; o++)
-            zbir += ocene[u][o];
+            zbir += ocene[s][o];
         cout << (double) zbir / (double) broc << endl; } // ispis
     return 0; }
