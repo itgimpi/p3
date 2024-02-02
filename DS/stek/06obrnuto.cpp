@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-#include <stack>
+#include <bits/stdc++.h>
 using namespace std;
 int main() {
     stack<string> s; // s je stek

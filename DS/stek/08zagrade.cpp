@@ -24,8 +24,10 @@ int main() {
                 OK = false;         // ako je stek prazan ili nije uparena sa vrhom steka...
                 break; }            // ...nisu uparene
             zagrade.pop(); } }      // poklapaju se, skini otvorenu sa vrha
+    
     if (!zagrade.empty()) // stek mora da bude prazan!
         OK = false;
+        
     cout << (OK ? "tacno" : "netacno") << endl;
     // if ( OK ) cout << "tacno" else cout << "ne";
     return 0; }
