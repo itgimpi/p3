@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-// Lists in C++ using pointers to pointers from main 
+// Lists in C++ using non-void functions
 
 class node {
 public:
