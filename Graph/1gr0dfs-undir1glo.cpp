@@ -1,13 +1,12 @@
 #include <bits/stdc++.h> // DFS
 using namespace std; // directed graph
-
+// sudedi se dodaju rucno
 vector<vector<int>>veze; // veze su global, ne moraju da se prenose...
 vector<bool>posecen;
 
 void dodaj(int u, int v){ // dodaj cvor od u do v
     veze[u].push_back(v); 
-    veze[v].push_back(u);
-    }
+    veze[v].push_back(u);  }
 
 void dfs(int c) { // c je pocetni cvor
     if (!posecen[c]) { // ako nije do sada posecen...
@@ -20,11 +19,12 @@ void dfs(int c) { // c je pocetni cvor
 
 int main() {
     int nc = 5; // br.cvorova, cin >>
+    int nv = 5;
 
     veze.resize(nc);
     posecen.resize(nc, false); // pre pocetka nema posecenih cvorova
     dodaj(0,1); dodaj(0,2); dodaj(1,3); dodaj(3,2); dodaj(3,4);   
 
-    dfs(4); // DFS obilazak od 0
+    dfs(0); // DFS obilazak od 0
 
     return 0; }

@@ -1,6 +1,6 @@
 #include <bits/stdc++.h> // DFS
 using namespace std; // directed graph
-
+// sudedi se dodaju rucno, 
 
 void dodaj(int u, int v, vector<vector<int>>&veze){ // dodaj cvor od u do v
     veze[u].push_back(v); }
