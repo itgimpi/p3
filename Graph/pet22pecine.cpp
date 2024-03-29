@@ -4,6 +4,7 @@ using namespace std;
 
 int main() {
     ios_base::sync_with_stdio(false);
+
     int h0, n; cin >> h0 >> n;
     vector<vector<pair<int,int>>>veze(n);
     for (int i = 0; i < n-1; i++  ) {
@@ -19,11 +20,8 @@ int main() {
     while ( !red.empty() ) {
         pair<int,int>p = red.front(); red.pop();
         naj = min(naj, p.second);
-        for (auto v : veze[p.first]) {
-            red.emplace(v.first, v.second + p.second);
-        }
-
-    }
+        for (auto v : veze[p.first]) 
+            red.emplace(v.first, v.second + p.second);  }
     cout << naj;
     
     return 0; }
