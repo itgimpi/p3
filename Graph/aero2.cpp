@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     //ios_base::sync_with_stdio(false);
     int n, e; cin >> n >> e; // n ide od 1 do n
-    vector<vector<bool>>letovi(n,vector<bool>(n,false));
+    //vector<vector<bool>>letovi(n,vector<bool>(n,false));
 
     for ( int i = 0; i < e; i++ ) {
         int u, v; cin >> u >> v; //
